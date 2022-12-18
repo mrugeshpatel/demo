@@ -1,0 +1,30 @@
+package com.jpmc.theater.service;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.jpmc.theater.util.Constants;
+
+import com.jpmc.theater.model.Movie;
+import com.jpmc.theater.repository.MovieRepository;
+
+@Service
+public class MovieService {
+	
+	
+	 @Autowired
+	 private MovieRepository movieRepository;
+	 
+	 public Optional<Movie> findByTitle(final String title) {
+		 return movieRepository.findByTitle(title);
+	 }
+	 
+	 public double getDiscount(Movie movie) {
+	    double specialDiscount = 0;
+	    if (Constants.MOVIE_CODE_SPECIAL == movie.getSpecialCode()) {
+	        specialDiscount = movie.getTicketPrice() * 0.2;  // 20% discount for special movie
+	    }
+	    return specialDiscount;
+	 }   
+}

@@ -1,0 +1,49 @@
+package com.jpmc.theater.client;
+
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
+
+import com.jpmc.theater.vo.BookingRequest;
+import com.jpmc.theater.vo.BookingResponse;
+
+@Component
+public class ShowBookingClient {
+
+	 private final RestTemplate restTemplate;
+	 
+	 public ShowBookingClient(RestTemplateBuilder restTemplateBuilder) {
+		 this.restTemplate = restTemplateBuilder.rootUri("http://localhost:8080/").build();
+	 }
+	 
+	 public void getSingleUser(Long id) {
+		 BookingRequest bookingRequest = createRequest();
+		 HttpEntity<BookingRequest> request = new HttpEntity<>(bookingRequest);	 
+		 HttpEntity<BookingRequest> requestEntity = new HttpEntity<>(headers);
+		 requestEntity.getHeaders().setContentType(MediaType.APPLICATION_JSON);
+	     BookingResponse body = restTemplate.exchange("/api/users/{id}", HttpMethod.POST, requestEntity,
+	    		 						BookingResponse.class, request).getBody();
+	 
+	 }
+	 
+	 private BookingRequest createRequest() {
+		LocalDateTime localDateTime = LocalDateTime.now();
+		LocalDateTime.of(localDateTime.toLocalDate(), LocalTime.of(9, 0));
+		BookingRequest request = BookingRequest.builder()
+				   .customer("Mike")
+				   .theater("Regal")
+				   .location("South Brunswick")
+				   .showStartTime(LocalDateTime.of(localDateTime.toLocalDate(), LocalTime.of(9, 0)))
+				   .movie("The Batman")
+				   .noOfSeat(3)
+				   .build();
+		return request;
+	}
+}

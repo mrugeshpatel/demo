@@ -1,0 +1,43 @@
+package com.jpmc.theater.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.jpmc.theater.model.Customer;
+import com.jpmc.theater.repository.CustomerRepository;
+
+
+@Service
+public class CustomerService {
+
+	@Autowired
+	private CustomerRepository customerRepository;
+	
+	public void save(final Customer book) {
+        customerRepository.save(Customer);
+    }
+
+    public long getCustomersCount() {
+        return customerRepository.count();
+    }
+
+    public Iterable<Customer> getAllCustomers() {
+        return customerRepository.findAll();
+    }
+
+    public Optional<Customer> getCustomerById(final int CustomerId) {
+        return customerRepository.findById(CustomerId);
+    }
+
+    public List<Customer> getAllCustomersByGenre(final String genre) {
+        return customerRepository.findCustomerByGenre(genre);
+    }
+
+    public List<Customer> getAllCustomersByQuantityGreaterThanEqual(final int quantity) {
+        return customerRepository.findCustomerByQuantityGreaterThanEqual(quantity);
+    } 
+	
+}

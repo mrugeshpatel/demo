@@ -1,0 +1,22 @@
+/**
+ * 
+ */
+package com.jpmc.theater;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+
+/**
+ * @author Mrugesh Patel
+ *
+ */
+@SpringBootApplication
+public class MovieTheaterSpringBootApplication {
+	
+	private final Logger logger = LoggerFactory.getLogger(LoggingController.class);
+	
+    public static void main(String[] args) {
+        SpringApplication.run(MovieTheaterSpringBootApplication.class, args);
+    }
+}    

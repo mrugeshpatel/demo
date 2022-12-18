@@ -1,0 +1,14 @@
+package com.jpmc.theater.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.jpmc.theater.repository.CustomerRepository;
+
+@Service
+public class CustomerService {
+
+	@Autowired
+	private CustomerRepository customerRepository;
+	
+}

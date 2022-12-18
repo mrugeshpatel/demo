@@ -1,0 +1,5 @@
+package com.jpmc.theater.repository;
+
+public class ShowingRepositoryTest {
+
+}

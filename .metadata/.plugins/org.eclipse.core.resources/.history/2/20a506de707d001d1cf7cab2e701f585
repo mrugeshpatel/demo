@@ -1,0 +1,29 @@
+package com.jpmc.theater.service;
+
+import java.util.Date;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.jpmc.theater.model.Showing;
+import com.jpmc.theater.repository.ShowingRepository;
+
+@Service
+public class ShowingService {
+
+	@Autowired
+	ShowingRepository showingRepository;
+	
+	public Optional<Showing> findByTheaterAndMovieAndShowStartTime(final Long theater, final Long movie, final Date showStartTime){
+		return showingRepository.findByTheaterAndMovieAndShowStartTime(theater, movie, showStartTime);
+	}
+	
+	public Showing save(Showing Showing) {
+		return showingRepository.save(Showing);
+	}
+	 
+	public long getShowingCount() {
+		return showingRepository.count();
+	}
+}

@@ -1,0 +1,5 @@
+package com.jpmc.theater.controller;
+
+public class TheaterController {
+
+}

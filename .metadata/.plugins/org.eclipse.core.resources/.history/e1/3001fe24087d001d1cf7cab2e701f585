@@ -1,0 +1,5 @@
+package com.jpmc.theater.util;
+
+public interface Constants {
+
+}

@@ -1,0 +1,22 @@
+package com.jpmc.theater.util;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
+public class DateFormatter {
+	
+	private static final SimpleDateFormat timeFormatter = new SimpleDateFormat("HH-mm-ss");
+	
+	public static Date getTime(Date date) throws ParseException {
+		String format = timeFormatter.format(date);
+		return timeFormatter.parse(format);
+	}
+
+	public static String formatDateAndTime(LocalDateTime dt) throws ParseException {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYYY-MM-dd HH:mm");
+        return formatter.format(dt);
+	}
+}

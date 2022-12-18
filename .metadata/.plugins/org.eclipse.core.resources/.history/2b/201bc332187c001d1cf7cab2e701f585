@@ -1,0 +1,63 @@
+package com.jpmc.theater.model;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Entity
+@Table(name = "showing")
+@NoArgsConstructor @RequiredArgsConstructor @AllArgsConstructor
+@ToString @EqualsAndHashCode
+public class Showing implements Serializable{
+   
+	private static final long serialVersionUID = -3163396814036919549L;
+
+	@Getter
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private String id;
+	
+	@Getter @Setter 
+	@ManyToOne(targetEntity = Movie.class, optional = false)
+    @JoinColumn(name = "movie_id")
+	private Movie movie;
+	
+	@Getter @Setter 
+	@ManyToOne(targetEntity = Theater.class, optional = false)
+    @JoinColumn(name = "theater_id")
+	private Theater theater;
+	
+	@OneToMany(mappedBy = "showing",fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Reservation> reservations = new ArrayList<>();
+    
+	@Getter @Setter 
+	@Column(name = "sequenceOfTheDay")
+	private Integer sequenceOfTheDay;
+    
+	@Getter @Setter 
+	@Column(name = "showStartTime")
+	private LocalDateTime showStartTime;
+}

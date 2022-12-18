@@ -1,0 +1,22 @@
+package com.jpmc.theater.vo;
+
+import java.util.Date;
+
+public class BookingResponse {
+
+	private String theater;
+	
+	private String movie;
+	
+	private Integer sequenceOfTheDay;
+	
+	private Date show;
+	
+	private String duration;
+	
+	private Double grossAmount;
+	
+	private Double discount;
+	
+	private Double total;
+}

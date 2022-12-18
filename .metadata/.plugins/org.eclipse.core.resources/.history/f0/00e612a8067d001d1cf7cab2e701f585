@@ -1,0 +1,14 @@
+package com.jpmc.theater.repository;
+
+import java.util.Optional;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.jpmc.theater.model.Showing;
+
+@Repository
+public interface ShowingRepository extends CrudRepository<Showing, Integer> {
+
+	public Optional<Showing> findByTheaterAndMovieAndShowNum(final String theater, final String movie, final Integer showNum);
+}

@@ -1,0 +1,64 @@
+package com.jpmc.theater.bootstrap;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
+
+import com.github.javafaker.Faker;
+import com.jpmc.theater.model.Movie;
+import com.jpmc.theater.model.Theater;
+import com.jpmc.theater.service.MovieService;
+import com.jpmc.theater.service.TheaterService;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Component
+@Slf4j
+public class DefaultDataLoader implements CommandLineRunner {
+	
+	@Autowired
+    private TheaterService theaterService;
+	
+	@Autowired
+    private MovieService movieService;
+	
+	@Autowired
+    private Faker faker;
+
+    @Override
+    public void run(String... args) {
+        loadTheaterData();
+        loadMovieData();
+    }
+
+    private void loadTheaterData() {
+        if (theaterService.getTheaterCount() == 0) {
+            log.info("Saving the default theater(s) into the database.");
+            for (int x = 0; x < 5; x++) {
+            	theaterService.save(createNewTheater());
+            }
+        } else {
+            log.info("Default customer are already present in the database.");
+        }
+    }
+
+    private Theater createNewTheater() {
+        return new Theater(faker.artist().name(), faker.address().cityName());
+    }
+    
+    private void loadMovieData() {
+        if (movieService.getMovieCount() == 0) {
+            log.info("Saving the default movie(s) into the database.");
+            for (int x = 0; x < 5; x++) {
+            	movieService.save(createNewMovie());
+            }
+        } else {
+            log.info("Default customer are already present in the database.");
+        }
+    }
+
+    private Movie createNewMovie() {
+        return new Movie(faker.superhero().name(), faker.superhero().descriptor(), "1 hour 30 mins",
+        		faker.number().randomDouble(2, 5, 35), 1);
+    }
+}

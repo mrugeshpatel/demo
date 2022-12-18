@@ -1,0 +1,47 @@
+package com.jpmc.theater.entity;
+
+import java.time.Duration;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Entity
+@NoArgsConstructor @RequiredArgsConstructor @AllArgsConstructor
+@ToString @EqualsAndHashCode
+public class Movie {
+    
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private String id;
+	
+	@Getter @Setter 
+	@NonNull
+    private String title;
+	
+	@Getter @Setter 
+    private String description;
+	
+	@Getter @Setter 
+	@NonNull
+    private Duration runningTime;
+    
+	@Getter @Setter 
+	@NonNull
+	private double ticketPrice;
+    
+	@Getter @Setter 
+	@NonNull
+	private int specialCode;
+ 
+}
