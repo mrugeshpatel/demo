@@ -1,6 +1,0 @@
-package com.jpmc.theater.util;
-
-public interface Constants {
-
-	public static final Integer MOVIE_CODE_SPECIAL = 1;
-}

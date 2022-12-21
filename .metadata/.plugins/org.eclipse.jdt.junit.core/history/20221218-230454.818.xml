@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="MovieRepositoryTest" project="movie-theater-src" tests="2" started="2" failures="0" errors="0" ignored="0">
-  <testsuite name="com.jpmc.theater.repository.MovieRepositoryTest" time="0.134" displayname="MovieRepositoryTest" uniqueid="[engine:junit-jupiter]/[class:com.jpmc.theater.repository.MovieRepositoryTest]">
-    <testcase name="testSave" classname="com.jpmc.theater.repository.MovieRepositoryTest" time="0.119" displayname="testSave()" uniqueid="[engine:junit-jupiter]/[class:com.jpmc.theater.repository.MovieRepositoryTest]/[method:testSave()]"/>
-    <testcase name="testFindByTitle" classname="com.jpmc.theater.repository.MovieRepositoryTest" time="0.015" displayname="testFindByTitle()" uniqueid="[engine:junit-jupiter]/[class:com.jpmc.theater.repository.MovieRepositoryTest]/[method:testFindByTitle()]"/>
-  </testsuite>
-</testrun>

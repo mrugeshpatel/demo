@@ -1,5 +1,0 @@
-package com.jpmc.theater.model;
-
-public interface TheaterRepository {
-
-}

@@ -1,8 +1,0 @@
-package com.jpmc.theater.bootstrap;
-
-import org.springframework.stereotype.Component;
-
-@Component
-public class DefaultDataLoader {
-
-}

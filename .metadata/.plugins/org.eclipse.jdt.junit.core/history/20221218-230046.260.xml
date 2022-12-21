@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="MovieRepositoryTest" project="movie-theater-src" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="com.jpmc.theater.repository.MovieRepositoryTest" time="0.134" displayname="MovieRepositoryTest" uniqueid="[engine:junit-jupiter]/[class:com.jpmc.theater.repository.MovieRepositoryTest]">
-    <testcase name="testSave" classname="com.jpmc.theater.repository.MovieRepositoryTest" time="0.134" displayname="testSave()" uniqueid="[engine:junit-jupiter]/[class:com.jpmc.theater.repository.MovieRepositoryTest]/[method:testSave()]"/>
-  </testsuite>
-</testrun>

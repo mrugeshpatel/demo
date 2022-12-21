@@ -1,5 +1,0 @@
-package com.jpmc.theater.vo;
-
-public class ReservationResponse {
-
-}
